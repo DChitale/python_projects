@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from urllib import *
 
+f=open("result.txt","w")
 visited_urls = set()
 
 def spider_urls(url, keyword):
@@ -26,9 +27,11 @@ def spider_urls(url, keyword):
         for url2 in urls:
             if url2 not in visited_urls:
                 visited_urls.add(url2)
+                
                 url_join=urljoin(url, url2)
                 if keyword in url_join:
                     print(url_join)
+                    f.write(url2)
                     spider_urls(url_join, keyword)
     else:
         pass
