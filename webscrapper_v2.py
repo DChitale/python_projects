@@ -31,7 +31,7 @@ def spider_urls(url, keyword):
                 url_join=urljoin(url, url2)
                 if keyword in url_join:
                     print(url_join)
-                    f.write(url2)
+                    f.write(url2+'\n')
                     spider_urls(url_join, keyword)
     else:
         pass
